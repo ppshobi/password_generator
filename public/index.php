@@ -1,5 +1,5 @@
 <?php
-require_once("password.php");
+require_once("../lib/password.php");
 
 $password= new Password;
 
