@@ -2,6 +2,12 @@
 require_once("../lib/password.php");
 
 $password= new Password;
-
-echo $password->generate();
+$length=8;
+$options=array(
+	'lower'=>true,
+	'upper'=>true,
+	'numbers'=>true,
+	'symbols'=>true
+);
+echo $password->generate($length,$options);
 ?>
