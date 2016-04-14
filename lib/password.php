@@ -20,13 +20,13 @@ class Password {
 
 	function define_charset($options){
 		if ($options['lower']) {
-			$charset .= $lower_letters;
+			$this->$charset .= $this->$lower_letters;
 		}if ($options['upper']) {
-			$charset .= $upper_letters;
+			$this->$charset .= $this->$upper_letters;
 		}if ($options['numbers']) {
-			$charset .= $numbers;
+			$this->$charset .= $this->$numbers;
 		}if ($options['symbols']) {
-			$charset .= $symbols;
+			$this->$charset .= $this->$symbols;
 		}
 	}
 
@@ -35,13 +35,13 @@ class Password {
 	}
 
 	function generate($length,$options){
-		define_charset($options);
+		$this->define_charset($options);
 		
 		$charset_length=strlen(charset);
 
 		
 		for($i=0;$i<$length;$i++){
-			$position=pickrandomno(0,$charset_length-1);
+			$position=$this->pickrandomno(0,$charset_length-1);
 			$this->$generated_password.=$this->charset[$position];
 		}
 
