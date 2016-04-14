@@ -4,14 +4,14 @@
 */
 class Password {
 	
-	// $lower_letters="abcdefghijklmnopqrstuvwxyz";
-	// $upper_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	// $numbers="0123456789";
-	// $symbols="!@#$%^&*()_-+=~`.,";
+	private $lower_letters="abcdefghijklmnopqrstuvwxyz";
+	private $upper_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private $numbers="0123456789";
+	private $symbols="!@#$%^&*()_-+=~`.,";
 
-	// charset
-	// $charset='';
-	// $generated_password='';
+	//charset
+	private $charset='';
+	private $generated_password='';
 
 	function __construct()
 	{
@@ -19,16 +19,16 @@ class Password {
 	}
 
 	function define_charset($options){
-		// if ($options['lower']) {
-			this->$charset .= this->$lower_letters;
-		// }if ($options['upper']) {
-			this->$charset .= this->$upper_letters;
-		// }if ($options['numbers']) {
-			this->$charset .= this->$numbers;
-		// }if ($options['symbols']) {
-			this->$charset .= this->$symbols;
-		// }
-	// }
+		if ($options['lower']) {
+			$charset .= $lower_letters;
+		}if ($options['upper']) {
+			$charset .= $upper_letters;
+		}if ($options['numbers']) {
+			$charset .= $numbers;
+		}if ($options['symbols']) {
+			$charset .= $symbols;
+		}
+	}
 
 	function pickrandomno($start=0,$end){
 		return mt_rand($start,$end);
@@ -37,12 +37,12 @@ class Password {
 	function generate($length,$options){
 		define_charset($options);
 		
-		$charset_length=strlen(this->charset);
+		$charset_length=strlen(charset);
 
 		
-		for(i=0;i<$length;i++){
+		for($i=0;$i<$length;$i++){
 			$position=pickrandomno(0,$charset_length-1);
-			this->$generated_password.=this->charset[$position];
+			$this->$generated_password.=$this->charset[$position];
 		}
 
 		return $generated_password;
