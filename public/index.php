@@ -11,3 +11,13 @@ $options=array(
 );
 echo $password->generate($length,$options);
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Generator</title>
+</head>
+<body>
+<header>Password Generator</header>
+
+</body>
+</html>
