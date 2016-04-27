@@ -34,7 +34,7 @@ class Password {
 		return mt_rand($start,$end);
 	}
 
-	function generate($length,$options){
+	function generate($length = 8,$options){
 		$this->define_charset($options);
 		$charset_length=strlen($this->charset);
 		
