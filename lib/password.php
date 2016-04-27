@@ -18,15 +18,15 @@ class Password {
 		
 	}
 
-	function define_charset($options){
+	private function define_charset($options){
 		if ($options['lower']) {
-			$this->$charset .= $this->$lower_letters;
+			$this->charset .= $this->lower_letters;
 		}if ($options['upper']) {
-			$this->$charset .= $this->$upper_letters;
+			$this->charset .= $this->upper_letters;
 		}if ($options['numbers']) {
-			$this->$charset .= $this->$numbers;
+			$this->charset .= $this->numbers;
 		}if ($options['symbols']) {
-			$this->$charset .= $this->$symbols;
+			$this->charset .= $this->symbols;
 		}
 	}
 
@@ -36,16 +36,14 @@ class Password {
 
 	function generate($length,$options){
 		$this->define_charset($options);
-		
-		$charset_length=strlen(charset);
-
+		$charset_length=strlen($this->charset);
 		
 		for($i=0;$i<$length;$i++){
 			$position=$this->pickrandomno(0,$charset_length-1);
-			$this->$generated_password.=$this->charset[$position];
+			$this->generated_password.=$this->charset[$position];
 		}
 
-		return $generated_password;
+		return $this->generated_password;
 	}
 }
 
